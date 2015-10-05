@@ -1,0 +1,22 @@
+datastore:
+  image: busybox
+  volumes:
+      - /opt/datastore:/var/lib/mysql
+  container_name: la5-datastore
+mysql:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: pass
+  volumes_from:
+    - datastore
+  container_name: la5-mysql
+php:
+  build: ./php
+  ports:
+    - "8099:80"
+  volumes:
+    - /home/core/share/work/php:/var/www/html
+    - /home/core/share:/share
+  links:
+    - mysql:la5-mysql
+  container_name: la5-php
