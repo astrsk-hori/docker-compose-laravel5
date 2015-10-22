@@ -6,3 +6,4 @@ RUN apt-get update \
   && docker-php-ext-install pdo_mysql mysqli mbstring gd iconv mcrypt
 RUN /usr/bin/curl -sS https://getcomposer.org/installer |php
 RUN /bin/mv composer.phar /usr/local/bin/composer
+COPY apache2.conf /etc/apache2/apache2.conf

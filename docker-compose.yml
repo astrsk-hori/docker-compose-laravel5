@@ -15,8 +15,7 @@ php:
   ports:
     - "8099:80"
   volumes:
-    - /home/core/share/work/php:/var/www/html
-    - /home/core/share:/share
+    -  /Users/horie/work:/var/www/jf
   links:
     - mysql:la5-mysql
   container_name: la5-php
