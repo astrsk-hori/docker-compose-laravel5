@@ -7,6 +7,8 @@ mysql:
   image: mysql
   environment:
     MYSQL_ROOT_PASSWORD: pass
+  ports:
+    - "3306:3306"
   volumes_from:
     - datastore
   container_name: la5-mysql
@@ -15,7 +17,7 @@ php:
   ports:
     - "8099:80"
   volumes:
-    -  /Users/horie/work:/var/www/jf
+    -  /Users/horie/work/hoge:/var/www/jf
   links:
     - mysql:la5-mysql
   container_name: la5-php
